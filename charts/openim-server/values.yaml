@@ -69,6 +69,9 @@ resources: {}
   #   memory: 128Mi
 
 global:
+  sharedValues:
+    # Passed to every OpenIM component that needs gateway topology.
+    msggatewayReplicaCount: 1
   monitor:
     enabled: false
     additionalLabels: {}

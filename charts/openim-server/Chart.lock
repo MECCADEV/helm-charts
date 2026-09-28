@@ -1,0 +1,36 @@
+dependencies:
+- name: openim-msggateway
+  repository: file://charts/openim-msggateway
+  version: 0.1.0
+- name: openim-msggateway-proxy
+  repository: file://charts/openim-msggateway-proxy
+  version: 0.1.0
+- name: openim-msgtransfer
+  repository: file://charts/openim-msgtransfer
+  version: 0.1.0
+- name: openim-push
+  repository: file://charts/openim-push
+  version: 0.1.0
+- name: openim-rpc-auth
+  repository: file://charts/openim-rpc-auth
+  version: 0.1.0
+- name: openim-rpc-conversation
+  repository: file://charts/openim-rpc-conversation
+  version: 0.1.0
+- name: openim-rpc-friend
+  repository: file://charts/openim-rpc-friend
+  version: 0.1.0
+- name: openim-rpc-group
+  repository: file://charts/openim-rpc-group
+  version: 0.1.0
+- name: openim-rpc-msg
+  repository: file://charts/openim-rpc-msg
+  version: 0.1.0
+- name: openim-rpc-third
+  repository: file://charts/openim-rpc-third
+  version: 0.1.0
+- name: openim-rpc-user
+  repository: file://charts/openim-rpc-user
+  version: 0.1.0
+digest: sha256:5123aa4c314e3c64a46d4821192adf4b3ffe48c2f888b80e3a32fff312697324
+generated: "2026-09-28T14:52:43.528849563+05:30"
