@@ -1,0 +1,28 @@
+# Local-only override for the forked OpenIM API/RPC protocol set.  Build and
+# push the corresponding `build/images/*/Dockerfile.local` images from the
+# MECCADEV/open-im-server fork before applying this file.
+image:
+  repository: localhost:32000/meccadev-openim-api
+  tag: fork-dev4
+  pullPolicy: IfNotPresent
+
+openim-rpc-auth:
+  image:
+    repository: localhost:32000/meccadev-openim-rpc-auth
+    tag: fork-dev4
+    pullPolicy: IfNotPresent
+openim-rpc-user:
+  image:
+    repository: localhost:32000/meccadev-openim-rpc-user
+    tag: fork-dev4
+    pullPolicy: IfNotPresent
+openim-rpc-group:
+  image:
+    repository: localhost:32000/meccadev-openim-rpc-group
+    tag: fork-dev4
+    pullPolicy: IfNotPresent
+openim-rpc-friend:
+  image:
+    repository: localhost:32000/meccadev-openim-rpc-friend
+    tag: fork-dev4
+    pullPolicy: IfNotPresent
