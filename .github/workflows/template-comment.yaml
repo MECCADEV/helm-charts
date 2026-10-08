@@ -38,7 +38,7 @@ jobs:
         append_k8s_resource "./charts/openim-chat -f k8s-chat-server-config.yaml -f config-chatserver.yaml"
 
     - name: Comment PR with file
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@v3
       with:
         filePath: /tmp/out.md
         comment_tag: nrt_file
