@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 10280
               protocol: TCP
           #livenessProbe:
           #  httpGet:
@@ -46,6 +46,11 @@ spec:
           #    path: /
           #    port: http
           env:
+            # The OpenIM binary requires CONFIG_PATH before it can load the
+            # mounted config. Keep this explicit so image defaults cannot
+            # silently disappear during a registry/Helm rollout.
+            - name: CONFIG_PATH
+              value: /openim/openim-server/config
             - name: MY_MSGGATEWAY_REPLICACOUNT
               value: "{{ .Values.global.sharedValues.msggatewayReplicaCount }}"
             - name: MY_POD_NAME
@@ -65,6 +70,9 @@ spec:
             - mountPath: /openim/openim-server/config/notification.yaml
               name: config
               subPath: notification.yaml
+            - mountPath: /openim/openim-server/config/discovery.yml
+              name: config
+              subPath: discovery.yml
       volumes:
         - name: config
           configMap:

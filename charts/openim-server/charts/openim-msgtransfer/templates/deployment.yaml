@@ -65,6 +65,9 @@ spec:
             - mountPath: /openim/openim-server/config/notification.yaml
               name: config
               subPath: notification.yaml
+            - mountPath: /openim/openim-server/config/discovery.yml
+              name: config
+              subPath: discovery.yml
       volumes:
         - name: config
           configMap:

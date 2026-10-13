@@ -10,7 +10,9 @@ spec:
     - port: 88
       targetPort: rpc
       protocol: TCP
-      name: rpc
+      # The OpenIM Kubernetes discovery client selects the endpoint port named
+      # "grpc" when it fans messages out from push/msgtransfer.
+      name: grpc
     - port: 10001
       targetPort: http
       protocol: TCP

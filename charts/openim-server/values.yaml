@@ -101,4 +101,27 @@ affinity: {}
 
 notification:
 
+# Discovery is mounted into clients so Kubernetes service ports and the
+# addresses registered in etcd remain identical. The upstream chart assumed
+# every RPC Service listened on 80, which is not true for the fork's
+# message/conversation services.
+discovery:
+  enable: kubernetes
+  etcd:
+    rootDirectory: openim
+    address:
+      - localhost:12379
+  kubernetes:
+    namespace: openim
+  rpcService:
+    user: openimserver-openim-rpc-user:80
+    friend: openimserver-openim-rpc-friend:80
+    msg: openimserver-openim-rpc-msg:10280
+    push: openimserver-openim-push:80
+    messageGateway: openimserver-openim-msggateway:88
+    group: openimserver-openim-rpc-group:80
+    auth: openimserver-openim-rpc-auth:80
+    conversation: openimserver-openim-rpc-conversation:10220
+    third: openimserver-openim-rpc-third:80
+
 config:

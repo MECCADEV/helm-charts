@@ -11,8 +11,8 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    - port: 90
-      targetPort: 90
+    - port: 12280
+      targetPort: 12280
       protocol: TCP
       name: metrics-port
   selector:

@@ -9,7 +9,7 @@ spec:
     - port: 88
       targetPort: rpc
       protocol: TCP
-      name: rpc
+      name: grpc
     - port: 10001
       targetPort: http
       protocol: TCP

@@ -11,3 +11,7 @@ data:
     {{- with .Values.notification }}
         {{- toYaml . | nindent 4 }}
     {{- end }}
+  discovery.yml: |+
+    {{- with .Values.discovery }}
+        {{- toYaml . | nindent 4 }}
+    {{- end }}
