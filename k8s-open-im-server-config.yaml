@@ -106,7 +106,7 @@ openim-rpc-third:
     create: true
     name: openim-rpc-third
     annotations:
-      eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/pingmessenger-openim-documents
+      eks.amazonaws.com/role-arn: arn:aws:iam::403048695675:role/shark-openim-rpc-third
 openim-rpc-user:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/openimsdk/openim-rpc-user
