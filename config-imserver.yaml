@@ -100,8 +100,10 @@ config:
   # minio.endpoint can be configured as an intranet address,
   # minio.signEndpoint is minio public network address
   object:
-    enable: "minio"
-    apiURL: "https://openim1.server.top/api"
+    # Production uses AWS S3 with pod IRSA; the public gateway mounts this
+    # OpenIM API at /openim and rewrites /openim/object/* to /object/*.
+    enable: "aws"
+    apiURL: "https://api-platform-pingmessenger.meainternal.com/openim"
     minio:
       bucket: "openim"
       endpoint: "http://im-minio:9000"
@@ -133,11 +135,13 @@ config:
       sessionToken: ''
       publicRead: false
     aws:
-      endpoint: "''" # This might not be necessary unless you're using a custom endpoint
-      region: "us-east-1"
-      bucket: "demo-9999999"
+      region: "ap-south-1"
+      # OpenIM's own object bucket remains separate from the Platform's
+      # pingmessenger-message-documents-production bucket.
+      bucket: "pingmessenger-openim-403048695675-ap-south-1"
       accessKeyID: ''
-      accessKeySecret: ''
+      secretAccessKey: ''
+      sessionToken: ''
       publicRead: false
 
   ###################### RPC Port Configuration ######################

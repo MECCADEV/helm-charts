@@ -21,6 +21,13 @@ ingress:
       paths:
         - path: /api(/|$)(.*)
           pathType: ImplementationSpecific
+        # Object upload/signing endpoints are deliberately exposed as a
+        # separate route. A platform/public gateway may mount this backend at
+        # /openim/object/*; the rewrite preserves OpenIM's /object/* API path.
+        - path: /object(/|$)(.*)
+          pathType: ImplementationSpecific
+        - path: /openim/object(/|$)(.*)
+          pathType: ImplementationSpecific
   tls:
     - secretName: webapitls  #your hostname tls
       hosts:
@@ -93,6 +100,13 @@ openim-rpc-third:
     repository: registry.cn-hangzhou.aliyuncs.com/openimsdk/openim-rpc-third
     tag: "release-v3.6"
     pullPolicy: Always
+  # The third RPC owns OpenIM object APIs. Use workload identity/IRSA rather
+  # than static AWS credentials for the private document bucket.
+  serviceAccount:
+    create: true
+    name: openim-rpc-third
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/pingmessenger-openim-documents
 openim-rpc-user:
   image:
     repository: registry.cn-hangzhou.aliyuncs.com/openimsdk/openim-rpc-user
