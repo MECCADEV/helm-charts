@@ -68,6 +68,21 @@ spec:
             - mountPath: /openim/openim-server/config/discovery.yml
               name: config
               subPath: discovery.yml
+            - mountPath: /openim/openim-server/config/redis.yml
+              name: config
+              subPath: redis.yml
+            - mountPath: /openim/openim-server/config/mongodb.yml
+              name: config
+              subPath: mongodb.yml
+            - mountPath: /openim/openim-server/config/share.yml
+              name: config
+              subPath: share.yml
+            - mountPath: /openim/openim-server/config/openim-rpc-friend.yml
+              name: config
+              subPath: openim-rpc-friend.yml
+            - mountPath: /openim/openim-server/config/webhooks.yml
+              name: config
+              subPath: webhooks.yml
       volumes:
         - name: config
           configMap:
